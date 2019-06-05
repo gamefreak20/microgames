@@ -18,7 +18,11 @@
   </head>
 
   <body>
-
+    <div>
+      <button class="btn btn-blue">
+        Button
+      </button>
+    </div>
     @yield('content')
     @yield('lateJavascript')
 
