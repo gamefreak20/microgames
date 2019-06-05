@@ -13,6 +13,6 @@ class AdminUsersController extends Controller
 
     public function detail($id)
     {
-        return view('admin.users.detail', compact('id'));
+        return view('admin.users.detail');
     }
 }

@@ -11,7 +11,7 @@ class CreatorGameController extends Controller
         return view('creator.game.create');
     }
 
-    public function createLayout()
+    public function createLayout($id, $name)
     {
         return view('creator.game.createLayout');
     }

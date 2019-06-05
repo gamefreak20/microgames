@@ -11,12 +11,17 @@ class MemberInboxController extends Controller
         return view('member.inbox.index');
     }
 
-    public function detail()
+    public function detail($id)
     {
         return view('member.inbox.detail');
     }
 
     public function create()
+    {
+        return view('member.inbox.create');
+    }
+
+    public function createId($id)
     {
         return view('member.inbox.create');
     }

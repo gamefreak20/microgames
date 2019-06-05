@@ -8,16 +8,22 @@ class MemberGameController extends Controller
 {
     public function index()
     {
-        return view('member.games.index');
+        return view('games.index');
     }
 
-    public function detail()
+    public function detail($id, $name = null)
     {
-        return view('member.games.detail');
+        if ($name = null) {
+            //search for game with name = $id
+            //if more exists to go search page with the name = $id
+        } else {
+            //run the game with id = $id
+        }
+        return view('games.detail');
     }
 
-    public function play()
+    public function play($id, $name)
     {
-        return view('member.games.play');
+        return view('games.play');
     }
 }

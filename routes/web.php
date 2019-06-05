@@ -14,18 +14,32 @@
 Auth::routes();
 
 Route::get('/', 'MemberGameController@index')->name('game');
+Route::get('/game/{id}/{name}', 'MemberGameController@detail')->name('gameDetail');
+Route::get('/play/{id}/{name}', 'MemberGameController@play')->name('gamePlay');
 
 Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
+    //inbox
+    Route::get('/inbox', 'MemberInboxController@index')->name('memberInboxIndex');
+    Route::get('/inbox/{id}', 'MemberInboxController@detail')->name('memberInboxDetail');
+    Route::get('/inbox/create', 'MemberInboxController@create')->name('memberInboxCreate');
+    Route::get('/inbox/create/{id}', 'MemberInboxController@createId')->name('memberInboxCreateWithId');
 
+    //profile
+    Route::get('/profile', 'MemberProfileController@index')->name('memberProfile');
+
+    //users
+    Route::get('/users', 'MemberUsersController@index')->name('memberUsers');
 });
 
 Route::group(['middleware' => ['role:Creator|Admin']], function () {
-
+    //game
+    Route::get('/game/create', 'AdminUsersController@index')->name('creatorGameCreate');
+    Route::get('/gameLayout/{id}/{name}', 'AdminUsersController@index')->name('creatorGameLayout');
 });
 
 Route::group(['middleware' => ['role:Admin']], function () {
+    //admin users
     Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
-    Route::get('/admin/users/{id}', 'AdminUsersController@detail')->name('adminUsersDetail');
 });
 
 
