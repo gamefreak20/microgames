@@ -45,9 +45,9 @@ Route::group(['middleware' => ['role:Admin']], function () {
 //socialite
 
 Route::get('login/{service}',
-    'Auth\LoginController@redirectToProvider');
+    'Auth\LoginController@redirectToProvider')->name('loginService');
 
-Route::get('login/{service}',
+Route::get('login/{service}/callback',
     'Auth\LoginController@handleProviderCallback');
 
 //test need to remove
