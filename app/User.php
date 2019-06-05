@@ -7,11 +7,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use HasRoles;
     use Notifiable;
+
+    public $incrementing = false;
 
     protected $guard_name = 'web';
 
@@ -41,4 +44,56 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($post) {
+            $post->{$post->getKeyName()} = (string) Str::uuid();
+        });
+    }
+    public function getKeyType()
+    {
+        return 'id';
+    }
+
+    public function gamePages()
+    {
+        return $this->hasMany('App\gamePages');
+    }
+
+    public function inbox()
+    {
+        return $this->hasMany('App\Inbox', 'user_id_receiver');
+    }
+
+    public function inboxSender()
+    {
+        return $this->hasMany('App\Inbox', 'user_id_sender');
+    }
+
+    public function banned()
+    {
+        return $this->hasMany('App\Banned');
+    }
+
+    public function bannedBy()
+    {
+        return $this->hasMany('App\Banned', 'banned_by');
+    }
+
+    public function requests()
+    {
+        return $this->hasMany('App\Requests');
+    }
+
+    public function requestsChecked()
+    {
+        return $this->hasMany('App\Requests', 'checked_by');
+    }
+
+    public function reactions()
+    {
+        return $this->hasMany('App\Reactions');
+    }
 }
