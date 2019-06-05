@@ -42,8 +42,15 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
 });
 
+//socialite
 
+Route::get('login/{service}',
+    'Auth\LoginController@redirectToProvider');
 
+Route::get('login/{service}',
+    'Auth\LoginController@handleProviderCallback');
 
+//test need to remove
 
-
+Route::get('test/setAllRoles', 'AdminUsersController@setAllRoles');
+Route::get('test/assignRole/{userId}/{ruleName}', 'AdminUsersController@assignRole');

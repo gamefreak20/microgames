@@ -15,6 +15,11 @@ class CreateBannedsTable extends Migration
     {
         Schema::create('banneds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user_id');
+            $table->text('reason');
+            $table->boolean('permanent');
+            $table->timestamp('until');
+            $table->string('banned_by');
             $table->timestamps();
         });
     }

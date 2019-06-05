@@ -15,6 +15,11 @@ class CreateReactionsTable extends Migration
     {
         Schema::create('reactions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('game_id');
+            $table->string('user_id');
+            $table->float('rating');
+            $table->string('title');
+            $table->text('text');
             $table->timestamps();
         });
     }

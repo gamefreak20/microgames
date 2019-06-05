@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGamePagesTable extends Migration
+class CreateGameObjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateGamePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_pages', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('user_id');
+        Schema::create('game_objects', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('game_pages_id');
+            $table->integer('order_number');
+            $table->string('kind');
+            $table->string('what');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateGamePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_pages');
+        Schema::dropIfExists('game_objects');
     }
 }

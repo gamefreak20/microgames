@@ -15,6 +15,10 @@ class CreateInboxesTable extends Migration
     {
         Schema::create('inboxes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('user_id_receiver');
+            $table->string('user_id_sender');
+            $table->string('title');
+            $table->text('text');
             $table->timestamps();
         });
     }

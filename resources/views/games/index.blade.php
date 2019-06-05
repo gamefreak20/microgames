@@ -12,6 +12,10 @@
 
 @section('content')
 
-
+    @if (Auth::check())
+        LoggedIn
+    @else
+        LoggedOut
+    @endif
 
 @endsection
