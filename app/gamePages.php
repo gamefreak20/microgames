@@ -3,10 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
-class game_pages extends Model
+class gamePages extends Model
 {
     public $incrementing = false;
+
+    protected $fillable = [
+        'id',
+        'name',
+        'user_id',
+    ];
 
     protected static function boot()
     {
@@ -19,6 +26,26 @@ class game_pages extends Model
 
     public function getKeyName()
     {
-        return 'string';
+        return 'id';
+    }
+
+    public function gameObject()
+    {
+        return $this->hasOne('App\GameObject', 'game_pages_id');
+    }
+
+    public function requests()
+    {
+        return $this->hasOne('App\Requests');
+    }
+
+    public function reactions()
+    {
+        return $this->hasMany('App\Reactions', 'game_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tags');
     }
 }

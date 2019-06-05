@@ -65,6 +65,8 @@
                             </div>
                         </div>
                     </form>
+                    <button onclick="window.location.href = '{{route('loginService', ['service' => 'github'])}}';">github</button>
+                    <button onclick="window.location.href = '{{route('loginService', ['service' => 'google'])}}';">google</button>
                 </div>
             </div>
         </div>
