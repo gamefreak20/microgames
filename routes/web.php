@@ -13,4 +13,23 @@
 
 Auth::routes();
 
-Route::get('/', 'GameMemberController@index')->name('game');
+Route::get('/', 'MemberGameController@index')->name('game');
+
+Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
+
+});
+
+Route::group(['middleware' => ['role:Creator|Admin']], function () {
+
+});
+
+Route::group(['middleware' => ['role:Admin']], function () {
+    Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
+    Route::get('/admin/users/{id}', 'AdminUsersController@detail')->name('adminUsersDetail');
+});
+
+
+
+
+
+
