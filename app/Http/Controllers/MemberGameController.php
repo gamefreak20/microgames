@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\gamePages;
 use Illuminate\Http\Request;
 
 class MemberGameController extends Controller
 {
     public function index()
     {
-        return view('games.index');
+        $games = gamePages::orderBy('created_at')->get();
+        return view('games.index', compact('games'));
     }
 
     public function detail($id, $name = null)

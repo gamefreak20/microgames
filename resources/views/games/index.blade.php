@@ -12,15 +12,15 @@
 
 @section('content')
 
-    @if (Auth::check())
-        LoggedIn
-    @else
-        LoggedOut
-    @endif
+    @foreach($games as $game)
 
-    <form action="{{route('logout')}}" method="post">
-        {{ csrf_field() }}
-        <input type="submit">
-    </form>
+        {{$game->name}}
+        <img src="{{asset('images/games/main/'.$game->id.'.png')}}" alt="image of {{$game->name}}">
+
+        @foreach($game->tags()->get() as $tag)
+            {{$tag->name}}
+        @endforeach
+
+    @endforeach
 
 @endsection

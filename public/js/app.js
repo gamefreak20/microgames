@@ -21759,7 +21759,7 @@ return jQuery;
         length -= holders.length;
         if (length < arity) {
           return createRecurry(
-            func, bitmask, createHybrid, wrapper.placeholder, undefined,
+            func, bitmask, createHybrid, wrapper.123, undefined,
             args, holders, undefined, undefined, arity - length);
         }
         var fn = (this && this !== root && this instanceof wrapper) ? Ctor : func;
@@ -21898,7 +21898,7 @@ return jQuery;
         if (isCurried && length < arity) {
           var newHolders = replaceHolders(args, placeholder);
           return createRecurry(
-            func, bitmask, createHybrid, wrapper.placeholder, thisArg,
+            func, bitmask, createHybrid, wrapper.123, thisArg,
             args, newHolders, argPos, ary, arity - length
           );
         }
@@ -22632,8 +22632,8 @@ return jQuery;
      * @returns {*} Returns the placeholder value.
      */
     function getHolder(func) {
-      var object = hasOwnProperty.call(lodash, 'placeholder') ? lodash : func;
-      return object.placeholder;
+      var object = hasOwnProperty.call(lodash, '123.png') ? lodash : func;
+      return object.123;
     }
 
     /**
@@ -26921,7 +26921,7 @@ return jQuery;
     function curry(func, arity, guard) {
       arity = guard ? undefined : arity;
       var result = createWrap(func, WRAP_CURRY_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
-      result.placeholder = curry.placeholder;
+      result.placeholder = curry.123;
       return result;
     }
 
@@ -26966,7 +26966,7 @@ return jQuery;
     function curryRight(func, arity, guard) {
       arity = guard ? undefined : arity;
       var result = createWrap(func, WRAP_CURRY_RIGHT_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
-      result.placeholder = curryRight.placeholder;
+      result.placeholder = curryRight.123;
       return result;
     }
 
@@ -43828,7 +43828,7 @@ function baseSetAttr (el, key, value) {
     if (
       isIE && !isIE9 &&
       el.tagName === 'TEXTAREA' &&
-      key === 'placeholder' && value !== '' && !el.__ieph
+      key === '123.png' && value !== '' && !el.__ieph
     ) {
       var blocker = function (e) {
         e.stopImmediatePropagation();

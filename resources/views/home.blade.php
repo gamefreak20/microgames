@@ -20,4 +20,20 @@
         </div>
     </div>
 </div>
+
+{{-- check if logged in --}}
+
+@if (Auth::check())
+    LoggedIn
+@else
+    LoggedOut
+@endif
+
+{{-- logout --}}
+
+<form action="{{route('logout')}}" method="post">
+    {{ csrf_field() }}
+    <input type="submit">
+</form>
+
 @endsection
