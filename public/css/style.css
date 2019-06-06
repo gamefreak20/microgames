@@ -1,3 +1,7 @@
+body, html {
+  width: 100%;
+}
+
 a {
   text-decoration: none;
 }
@@ -125,20 +129,10 @@ a:hover {
   transform: scale(1.1);
 }
 
-.arrow:hover {
-  animation-name: arrow;
-  animation-duration: 1.5s;
-}
-
 .arrow {
   stroke: white;
   float: right;
   transform: scale(.4);
-}
-
-@keyframes arrow {
-  0% { transform: rotate(0deg) scale(.4);}
-  100% { transform: rotate(180deg) scale(.4);}
 }
 
 .dropItem {

@@ -1,0 +1,86 @@
+.wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  width: 100%;
+  padding: 50px 50px 0 50px;
+}
+
+.innerDiv {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+  transition: .4s;
+}
+
+.underImage {
+  position: absolute;
+  width: calc(100% - 10px);
+  background-color: #CECECE;
+  border-radius: 15px;
+  z-index: 0;
+  top: 10px;
+  left: 10px;
+  transition: .4s;
+}
+
+.totalImg {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  transition: .4s;
+}
+
+.totalImg:hover{
+  transform: scale(1.05);
+}
+
+.totalImg:hover .gameName{
+  transform: scale(.95);
+}
+
+.gameName {
+  position: absolute;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  padding: 10px 0;
+  z-index: 2;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: .4s;
+}
+
+.tag {
+  background-color: #CECECE;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #9C9C9C;
+  height: 25px;
+}
+
+.tagWrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  padding: 20px 10px 0 10px;
+}

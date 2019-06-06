@@ -43,6 +43,11 @@ function dropDown()
       duration: 400
     },'linear');
 
+    $( ".dropdown" ).animate({
+        borderRadius: '30px'
+      }, 400, function() {
+    });
+
     dropdown = false;
   } else {
     $('.dropdown').css('visibility','visible');
@@ -56,6 +61,14 @@ function dropDown()
       },
       duration: 400
     },'linear');
+
+    $( ".dropdown" ).animate({
+        borderTopLeftRadius: '0px',
+        borderTopRightRadius: '0px',
+        borderBottomLeftRadius: '30px',
+        borderBottomRightRadius: '30px'
+      }, 200, function() {
+    });
 
     dropdown = true;
   }
