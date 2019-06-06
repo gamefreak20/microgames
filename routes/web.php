@@ -41,6 +41,9 @@ Route::group(['middleware' => ['role:Creator|Admin']], function () {
 Route::group(['middleware' => ['role:Admin']], function () {
     //admin users
     Route::get('/admin/users/roles', 'AdminUsersController@roles')->name('adminUsersRoles');
+    Route::post('/admin/users/roles/assignRole', 'AdminUsersController@assignRole')->name('adminUsersRolesAssign');
+    Route::get('/admin/tags/create', 'AdminUsersController@createTagForm')->name('adminTagCreatForm');
+    Route::post('/admin/tags/create', 'AdminUsersController@createTag')->name('adminTagCreat');
 });
 
 //games
@@ -67,4 +70,4 @@ Route::get('users/{name}', 'AjaxController@users')->name('AjaxTag');
 //test need to remove
 
 Route::get('test/setAllRoles', 'AdminUsersController@setAllRoles');
-Route::get('test/assignRole/{userId}/{ruleName}', 'AdminUsersController@assignRole');
+//Route::get('test/assignRole/{userId}/{ruleName}', 'AdminUsersController@assignRole');
