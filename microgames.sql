@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 12:28 AM
+-- Generation Time: Jun 06, 2019 at 03:54 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -55,13 +55,6 @@ CREATE TABLE `game_objects` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `game_objects`
---
-
-INSERT INTO `game_objects` (`id`, `game_pages_id`, `order_number`, `kind`, `what`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, '1', '1', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -71,7 +64,7 @@ INSERT INTO `game_objects` (`id`, `game_pages_id`, `order_number`, `kind`, `what
 CREATE TABLE `game_pages` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -82,7 +75,12 @@ CREATE TABLE `game_pages` (
 --
 
 INSERT INTO `game_pages` (`id`, `name`, `slug`, `user_id`, `created_at`, `updated_at`) VALUES
-('123', 'tt', 'tt', '1', NULL, NULL);
+('0e3226bb-9dc4-4808-9d7e-f5593cd784c3', 'test', 'test-1', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:29:00', '2019-06-05 23:29:00'),
+('235b711f-28b1-4d1e-b5d0-4f3ac27dd314', 'test', 'test-2', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:30:07', '2019-06-05 23:30:07'),
+('4e9b2ca8-64dd-4e3f-9418-52e41382faf6', 'test', 'test-4', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:31:31', '2019-06-05 23:31:31'),
+('5338ab4e-2d94-4d9c-aa9a-b1948f3d5369', 'test', 'test-3', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:30:20', '2019-06-05 23:30:20'),
+('9c570cad-f715-4b48-a6e4-86ab37b836e5', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:20:14', '2019-06-05 23:20:14'),
+('b299a270-635c-493e-868b-1d860245a068', 'test', 'test-5', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:46:18', '2019-06-05 23:46:18');
 
 -- --------------------------------------------------------
 
@@ -95,13 +93,6 @@ CREATE TABLE `game_pages_tags` (
   `game_pages_id` int(10) UNSIGNED NOT NULL,
   `tags_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `game_pages_tags`
---
-
-INSERT INTO `game_pages_tags` (`id`, `game_pages_id`, `tags_id`) VALUES
-(1, 123, 1);
 
 -- --------------------------------------------------------
 
@@ -169,8 +160,15 @@ CREATE TABLE `model_has_permissions` (
 CREATE TABLE `model_has_roles` (
   `role_id` int(10) UNSIGNED NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `model_id` bigint(20) UNSIGNED NOT NULL
+  `model_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `model_has_roles`
+--
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(3, 'App\\User', 'da688641-a6af-4fa7-98ff-68e04177b3e3');
 
 -- --------------------------------------------------------
 
@@ -247,6 +245,15 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
+(1, 'Member', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
+(2, 'Creator', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
+(3, 'Admin', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22');
+
 -- --------------------------------------------------------
 
 --
@@ -274,7 +281,8 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `name`) VALUES
-(1, 'test');
+(1, 'test'),
+(2, 'test2');
 
 -- --------------------------------------------------------
 
@@ -299,6 +307,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `provider_id`, `provider`, `profile_picture`, `level`, `exp`, `remember_token`, `created_at`, `updated_at`) VALUES
+('da688641-a6af-4fa7-98ff-68e04177b3e3', 'Joey', NULL, NULL, 'joeystil3@gmail.com', NULL, NULL, '28229863', 'github', 0, 0, 0, 'NAHomynIZtS5cdxh2cAobL4Ns7LLScZjzsX8Rv5AfZIiO57iRPG7kjXkF7hV', '2019-06-05 21:59:19', '2019-06-05 21:59:19');
 
 --
 -- Indexes for dumped tables
@@ -418,13 +433,13 @@ ALTER TABLE `banneds`
 -- AUTO_INCREMENT for table `game_objects`
 --
 ALTER TABLE `game_objects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `game_pages_tags`
 --
 ALTER TABLE `game_pages_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `inboxes`
@@ -460,13 +475,13 @@ ALTER TABLE `requests`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
