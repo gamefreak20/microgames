@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 03:54 AM
+-- Generation Time: Jun 06, 2019 at 05:11 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -75,12 +75,9 @@ CREATE TABLE `game_pages` (
 --
 
 INSERT INTO `game_pages` (`id`, `name`, `slug`, `user_id`, `created_at`, `updated_at`) VALUES
-('0e3226bb-9dc4-4808-9d7e-f5593cd784c3', 'test', 'test-1', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:29:00', '2019-06-05 23:29:00'),
-('235b711f-28b1-4d1e-b5d0-4f3ac27dd314', 'test', 'test-2', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:30:07', '2019-06-05 23:30:07'),
-('4e9b2ca8-64dd-4e3f-9418-52e41382faf6', 'test', 'test-4', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:31:31', '2019-06-05 23:31:31'),
-('5338ab4e-2d94-4d9c-aa9a-b1948f3d5369', 'test', 'test-3', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:30:20', '2019-06-05 23:30:20'),
-('9c570cad-f715-4b48-a6e4-86ab37b836e5', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:20:14', '2019-06-05 23:20:14'),
-('b299a270-635c-493e-868b-1d860245a068', 'test', 'test-5', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-05 23:46:18', '2019-06-05 23:46:18');
+('22a8a137-5e76-4496-8bd9-66a80806bfc1', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-06 09:47:14', '2019-06-06 09:47:14'),
+('22a8a137-5e76-4496-8bd9-66a80806bfc2', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-06 09:47:14', '2019-06-06 09:47:14'),
+('38846937-3bcf-4146-b539-88eb06558b2f', 'test', 'test-1', '5071aade-6264-4b4c-bce2-9e13eddc700b', '2019-06-06 13:05:25', '2019-06-06 13:05:25');
 
 -- --------------------------------------------------------
 
@@ -109,6 +106,13 @@ CREATE TABLE `inboxes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inboxes`
+--
+
+INSERT INTO `inboxes` (`id`, `user_id_receiver`, `user_id_sender`, `title`, `text`, `created_at`, `updated_at`) VALUES
+(2, 'da688641-a6af-4fa7-98ff-68e04177b3e3', 'da688641-a6af-4fa7-98ff-68e04177b3e3', 'test', 'testestest', '2019-06-06 03:37:37', '2019-06-06 03:37:37');
 
 -- --------------------------------------------------------
 
@@ -168,6 +172,7 @@ CREATE TABLE `model_has_roles` (
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(2, 'App\\User', '60ce3e09-effc-4592-806a-97d2583e741b'),
 (3, 'App\\User', 'da688641-a6af-4fa7-98ff-68e04177b3e3');
 
 -- --------------------------------------------------------
@@ -252,7 +257,9 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Member', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
 (2, 'Creator', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
-(3, 'Admin', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22');
+(3, 'Admin', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
+(4, 'test', 'web', '2019-06-06 10:40:49', '2019-06-06 10:40:49'),
+(5, 'test3', 'web', '2019-06-06 10:41:15', '2019-06-06 10:41:15');
 
 -- --------------------------------------------------------
 
@@ -282,7 +289,9 @@ CREATE TABLE `tags` (
 
 INSERT INTO `tags` (`id`, `name`) VALUES
 (1, 'test'),
-(2, 'test2');
+(2, 'test2'),
+(3, 'test3'),
+(4, 'test3');
 
 -- --------------------------------------------------------
 
@@ -313,7 +322,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `provider_id`, `provider`, `profile_picture`, `level`, `exp`, `remember_token`, `created_at`, `updated_at`) VALUES
-('da688641-a6af-4fa7-98ff-68e04177b3e3', 'Joey', NULL, NULL, 'joeystil3@gmail.com', NULL, NULL, '28229863', 'github', 0, 0, 0, 'NAHomynIZtS5cdxh2cAobL4Ns7LLScZjzsX8Rv5AfZIiO57iRPG7kjXkF7hV', '2019-06-05 21:59:19', '2019-06-05 21:59:19');
+('60ce3e09-effc-4592-806a-97d2583e741b', 'Joey', 'joey', 'stil', 'joeystil3@gmail.com', NULL, '$2y$10$5.5zRq4OlwrY4yn0OrNiu.LGdd8EZNJwyV3uY7l4KGjHnMveQI42C', NULL, NULL, 0, 0, 0, NULL, '2019-06-06 13:06:30', '2019-06-06 13:06:30');
 
 --
 -- Indexes for dumped tables
@@ -445,7 +454,7 @@ ALTER TABLE `game_pages_tags`
 -- AUTO_INCREMENT for table `inboxes`
 --
 ALTER TABLE `inboxes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -475,13 +484,13 @@ ALTER TABLE `requests`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
