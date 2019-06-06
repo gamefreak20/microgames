@@ -16,7 +16,7 @@ class CreateGamePagesTable extends Migration
         Schema::create('game_pages', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('user_id');
             $table->timestamps();
         });
