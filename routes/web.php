@@ -43,6 +43,8 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
 });
 
+//games
+
 Route::get('/game/{name}', 'MemberGameController@detail')->name('gameDetail');
 Route::get('/game/{id}/{name}', 'MemberGameController@detail')->name('gameDetail');
 Route::get('/play/{id}/{name}', 'MemberGameController@play')->name('gamePlay');
