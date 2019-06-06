@@ -85,8 +85,9 @@ a:hover {
 
 .right
 {
-  position: absolute;
+  position: relative;
   right: 10px;
+  margin-left: 10px;
 }
 
 .left
@@ -288,4 +289,15 @@ a:hover {
 
 .boxText a:hover {
   color: #CECECE;
+}
+
+.loginButtons {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 18px;
+}
+
+.loginButton {
+  float: left;
 }

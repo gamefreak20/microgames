@@ -101,11 +101,21 @@
         </div>
 
         @else
-        <div class="boxBar right" id="profile">
-          <div class="boxTxtBarLogout">
-            <p class="boxText">
-              <a href="{{route('login')}}">login</a>
-            </p>
+        <div class="loginButtons">
+          <div class="boxBar right loginButton" >
+            <div class="boxTxtBarLogout">
+              <p class="boxText">
+                <a href="{{route('login')}}">Login</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="boxBar right loginButton" >
+            <div class="boxTxtBarLogout">
+              <p class="boxText">
+                <a href="{{route('register')}}">Register</a>
+              </p>
+            </div>
           </div>
         </div>
         @endif
