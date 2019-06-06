@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class gamePages extends Model
 {
+    use Sluggable;
+
     public $incrementing = false;
 
     protected $fillable = [
@@ -22,6 +25,20 @@ class gamePages extends Model
         static::creating(function ($game) {
             $game->{$game->getKeyName()} = (string) Str::uuid();
         });
+    }
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 
     public function getKeyName()

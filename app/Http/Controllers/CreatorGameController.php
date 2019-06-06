@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\gameObject;
+use App\gamePages;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\Auth;
 
 class CreatorGameController extends Controller
 {
@@ -36,7 +39,22 @@ class CreatorGameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'mainPicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'game' => 'required',
+        ]);
+
+        $input = $request->validate([
+            'title' => 'required|max:191',
+            'selectedTags' => 'max:191',
+        ]);
+
+        $game = gamePages::create(['name' => $input['title'], 'user_id' => Auth::user()->id]);
+
+        request()->mainPicture->move(public_path('images/games/main'), $game['id'].".".request()->mainPicture->getClientOriginalExtension());
+        request()->game->move(public_path('games'), $game['id'].".".request()->game->getClientOriginalExtension());
+
+        return var_dump($input);
     }
 
 }
