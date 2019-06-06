@@ -31,7 +31,7 @@
               </div>
               <hr class="formHr"/>
               <div class="form-group">
-                <p class="formTitle">Upload your Game</p>
+                <p class="formTitle">Upload your game</p>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="customFile" name="game">
                   <label class="custom-file-label" for="customFile">Choose file</label>
