@@ -21,7 +21,7 @@
           <div class="layer">
           </div>
         </div>
-        <div class="col-sm sidePicture">
+        <div class="col-sm">
           <div class="formWrap">
             <form>
               <hr class="formHr"/>

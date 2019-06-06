@@ -274,3 +274,18 @@ a:hover {
   border-color: #32965b;
   color: white;
 }
+
+.boxTxtBarLogout {
+  width: 100%;
+  float: right;
+  height: 100%;
+}
+
+.boxText a {
+  color: white;
+  transition: .4s;
+}
+
+.boxText a:hover {
+  color: #CECECE;
+}

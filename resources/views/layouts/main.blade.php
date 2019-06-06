@@ -60,27 +60,21 @@
             </p>
           </div>
         </div>
+        @if (\Illuminate\Support\Facades\Auth::check())
         <div class="boxBar right" id="profile" onclick="dropDown()">
           <div class="boxIcon">
           </div>
           <div class="boxTxtBar">
             <p class="boxText">
-                @if (\Illuminate\Support\Facades\Auth::check())
                     {{\Illuminate\Support\Facades\Auth::user()->name}}
-                @else
-                    <a href="{{route('login')}}">login</a>
-                @endif
-                @if (\Illuminate\Support\Facades\Auth::check())
               <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="73.693" height="43.918" viewBox="0 0 73.693 43.918">
                 <g data-name="Group 1" transform="translate(-857.505 -479.577)">
                   <line id="Line_1" data-name="Line 1" y1="42.109" transform="translate(864.576 486.648) rotate(-45)" stroke-linecap="square" stroke-width="10"/>
                   <line id="Line_3" data-name="Line 3" x1="42.109" transform="translate(894.352 516.424) rotate(-45)" stroke-linecap="square" stroke-width="10"/>
                 </g>
               </svg>
-                    @endif
             </p>
           </div>
-            @if (\Illuminate\Support\Facades\Auth::check())
           <div>
             <ul class="dropdown">
               <li class="dropItem">
@@ -104,8 +98,17 @@
               </li>
             </ul>
           </div>
-            @endif
         </div>
+
+        @else
+        <div class="boxBar right" id="profile">
+          <div class="boxTxtBarLogout">
+            <p class="boxText">
+              <a href="{{route('login')}}">login</a>
+            </p>
+          </div>
+        </div>
+        @endif
       </nav>
       <div class="xpBar">
         <div class="xpDone">
