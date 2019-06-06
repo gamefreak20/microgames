@@ -26,6 +26,8 @@ Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
 
     //profile
     Route::get('/profile', 'MemberProfileController@index')->name('memberProfile');
+    Route::get('/profile/edit', 'MemberProfileController@edit')->name('memberProfileEditForm');
+    Route::patch('/profile/edit', 'MemberProfileController@patch')->name('memberProfileEdit');
 
     //users
     Route::get('/users', 'MemberUsersController@index')->name('memberUsers');
