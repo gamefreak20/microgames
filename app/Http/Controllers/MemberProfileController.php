@@ -30,18 +30,16 @@ class MemberProfileController extends Controller
             'email' => 'email|required|max:191',
         ]);
 
-        $input2 = $request->validate([
-            'oldPassword' => 'required',
-        ]);
 
-        $user = Auth::user();
+        $user = User::findOrFail(Auth::user()->id);
 
         if ($user->password != null) {
-
-            if (Hash::make($input2['oldPassword']) != $user->password) {
-                return redirect(route('memberProfileEditForm'))->withErrors(['msg', 'You need to type the right password in']);;
+            /*
+            if (!Hash::check($input['oldPassword'], $user->password)) {
+                return $user->password;
+//                return redirect(route('memberProfileEditForm'))->withErrors(['msg', 'You need to type the right password in']);;
             }
-
+            */
             if (isset($request['password1'])) {
                 if ($request['password1'] == $request['password2']) {
                     $input['password'] = Hash::make($request['password1']);

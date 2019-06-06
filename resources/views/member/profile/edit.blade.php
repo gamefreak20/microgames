@@ -11,6 +11,11 @@
 
 
 @section('content')
+
+    @if ($errors->any())
+        {{ implode('', $errors->all('<div>:message</div>')) }}
+    @endif
+
     {!! Form::model($user, ['method'=>'PATCH', 'action'=>['MemberProfileController@patch', $user->id]]) !!}
 
         Name: <input type="text" name="name" value="{{$user->name}}" required><br>
@@ -23,7 +28,7 @@
             New password: <input type="password" name="password1"><br>
             Repeat password: <input type="password" name="password2"><br>
 
-            Your password: <input type="password" name="oldPassword" placeholder="*****" required><br>
+
 
         @else
             You cannot change your password, because you have logged in with a external account<br>
