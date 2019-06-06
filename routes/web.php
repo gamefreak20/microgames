@@ -14,8 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'MemberGameController@index')->name('game');
-Route::get('/game/{id}/{name}', 'MemberGameController@detail')->name('gameDetail');
-Route::get('/play/{id}/{name}', 'MemberGameController@play')->name('gamePlay');
 
 Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
     //inbox
@@ -33,14 +31,19 @@ Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
 
 Route::group(['middleware' => ['role:Creator|Admin']], function () {
     //game
-    Route::get('/game/create', 'AdminUsersController@index')->name('creatorGameCreate');
-    Route::get('/gameLayout/{id}/{name}', 'AdminUsersController@index')->name('creatorGameLayout');
+    Route::get('/game/create', 'CreatorGameController@create')->name('creatorGameCreate');
+    Route::post('/game/create', 'CreatorGameController@store')->name('creatorGameCreatePost');
+    Route::get('/gameLayout/{id}/{name}', 'CreatorGameController@createLayout')->name('creatorGameLayout');
 });
 
 Route::group(['middleware' => ['role:Admin']], function () {
     //admin users
     Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
 });
+
+Route::get('/game/{name}', 'MemberGameController@detail')->name('gameDetail');
+Route::get('/game/{id}/{name}', 'MemberGameController@detail')->name('gameDetail');
+Route::get('/play/{id}/{name}', 'MemberGameController@play')->name('gamePlay');
 
 //socialite
 
@@ -49,6 +52,11 @@ Route::get('login/{service}',
 
 Route::get('login/{service}/callback',
     'Auth\LoginController@handleProviderCallback');
+
+//js loaders
+
+Route::get('tags/{name}', 'AjaxController@tags')->name('AjaxTags');
+Route::get('tag/{name}', 'AjaxController@tag')->name('AjaxTag');
 
 //test need to remove
 
