@@ -37,39 +37,63 @@
           </form>
           <div class="boxBar center">
             <div class="boxIcon">
-              <p class="levelText">lvl <b class="levelTitle">99</b></p>
+              <p class="levelText">lvl <b class="levelTitle">
+                      @if (\Illuminate\Support\Facades\Auth::check())
+                          {{\Illuminate\Support\Facades\Auth::user()->level}}
+                      @else
+                          0
+                      @endif
+                  </b></p>
           </div>
           <div class="boxTxtBar">
-            <p class="boxText" id="xp">xp 1200 | 2500</p>
+            <p class="boxText" id="xp">xp
+                @if (\Illuminate\Support\Facades\Auth::check())
+                    {{\Illuminate\Support\Facades\Auth::user()->exp}}
+                    |
+                    {{150 * \Illuminate\Support\Facades\Auth::user()->level * (\Illuminate\Support\Facades\Auth::user()->level/3)}}
+                @else
+                    0|150
+                @endif
+
+
+            </p>
           </div>
         </div>
         <div class="boxBar right" id="profile" onclick="dropDown()">
           <div class="boxIcon">
           </div>
           <div class="boxTxtBar">
-            <p class="boxText">Bas Mensinga
+            <p class="boxText">
+                @if (\Illuminate\Support\Facades\Auth::check())
+                    {{\Illuminate\Support\Facades\Auth::user()->name}}
+                @else
+                    <a href="{{route('login')}}">login</a>
+                @endif
+                @if (\Illuminate\Support\Facades\Auth::check())
               <svg xmlns="http://www.w3.org/2000/svg" class="arrow" width="73.693" height="43.918" viewBox="0 0 73.693 43.918">
                 <g data-name="Group 1" transform="translate(-857.505 -479.577)">
                   <line id="Line_1" data-name="Line 1" y1="42.109" transform="translate(864.576 486.648) rotate(-45)" stroke-linecap="square" stroke-width="10"/>
                   <line id="Line_3" data-name="Line 3" x1="42.109" transform="translate(894.352 516.424) rotate(-45)" stroke-linecap="square" stroke-width="10"/>
                 </g>
               </svg>
+                    @endif
             </p>
           </div>
+            @if (\Illuminate\Support\Facades\Auth::check())
           <div>
             <ul class="dropdown">
               <li class="dropItem">
-                <a href=""><p class="dropdownText">Profile</p></a>
+                <a href="{{route('memberProfile')}}"><p class="dropdownText">Profile</p></a>
               </li>
               <li class="dropItem">
-                <a href=""><p class="dropdownText">Inbox</p></a>
+                <a href="{{route('memberInboxIndex')}}"><p class="dropdownText">Inbox</p></a>
               </li>
               <li class="dropItem">
-                <a href=""><p class="dropdownText">Create game</p></a>
+                <a href="{{route('creatorGameCreate')}}"><p class="dropdownText">Create game</p></a>
               </li>
-              <li class="dropItem">
-                <a href=""><p class="dropdownText">Options</p></a>
-              </li>
+{{--              <li class="dropItem">--}}
+{{--                <a href="{{route('memberProfile')}}"><p class="dropdownText">Options</p></a>--}}
+{{--              </li>--}}
 
               <li class="dropItem">
                   <form id="logoutForm" action="{{route('logout')}}" method="post">
@@ -79,6 +103,7 @@
               </li>
             </ul>
           </div>
+            @endif
         </div>
       </nav>
       <div class="xpBar">

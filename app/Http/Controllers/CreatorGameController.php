@@ -60,7 +60,6 @@ class CreatorGameController extends Controller
         request()->game->move(public_path('games'), $game['id'].".".request()->game->getClientOriginalExtension());
 
         $Path = public_path("games\\".$game['id'].".".request()->game->getClientOriginalExtension());
-        $deletePath = public_path()."\games\\".$game['id'].".".request()->game->getClientOriginalExtension();
 
         $za = new ZipArchive();
 
