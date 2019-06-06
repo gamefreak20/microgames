@@ -1,0 +1,94 @@
+.btn-link {
+  font-weight: 400;
+  color: #3cb46d;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  position: relative;
+}
+
+.btn-link:hover {
+  color: #3cb46d;
+}
+
+.socialLogin {
+  text-align: center;
+}
+
+.googleBtn {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  position: relative;
+  background-color: #3cb46d;
+  border: 0;
+  border-radius: .25rem;
+  padding: 5px;
+}
+
+.googleBtn:hover {
+  background-color: #32965b;
+  transition: .4s;
+}
+
+.googleBtn p {
+  margin: 0;
+}
+
+.githubBtn {
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  position: relative;
+  background-color: #3cb46d;
+  border: 0;
+  border-radius: .25rem;
+  padding: 5px;
+}
+
+.githubBtn:hover {
+  background-color: #32965b;
+  transition: .4s;
+}
+
+.githubBtn p {
+  margin: 0;
+}
+
+.gLogo {
+  margin-right: 10px;
+}
+
+.gitLogo {
+  margin-right: 10px;
+}
+
+.sidePictureLogin {
+  background-image: url('/microgames/public/images/games/create/create.jpg');
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
+  background-size: cover;
+}
+
+.fullHeight {
+  height: calc(100% - 106px);
+}
+
+.forgotRememberBtn {
+  margin-top: 10px;
+  position: relative;
+  left: 50%;
+  transform: translate( -50%);
+  display: inline-block;
+}
+
+.form-check {
+  float: left;
+  padding: 6px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
