@@ -1,0 +1,110 @@
+.height:first-child {
+  height: 100%;
+}
+
+.height:not(:first-child) {
+  height: calc(100% - 106px);
+}
+
+.plusDiv {
+  width: 100%;
+  height: 150px;
+}
+
+.plus {
+  position: relative;
+  background-color: #e2e2e2;
+  border-radius: 100px;
+  width: 75px;
+  height: 75px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .4s;
+  margin: auto;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.1);
+  border: 0;
+
+}
+
+.elementText {
+  font-weight: 600;
+  font-size: 25px;
+  color: #3CB46D;
+  text-align: center;
+}
+
+.plusText {
+  position: relative;
+  text-align: center;
+  top: 28px;
+  transform: translateY(-50%);
+  color: #3CB46D;
+  font-weight: 600;
+  font-size: 90px;
+  margin: 0;
+}
+
+.plus:hover  {
+  background-color: #d6d6d6;
+  box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.elementGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  width: 100%;
+}
+
+.elementGroup div{
+  cursor: pointer;
+  transition: .4s;
+  border-radius: 15px;
+}
+
+
+.elementGroup div:hover {
+  border-radius: 15px;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
+}
+
+.elementGroup img {
+  height: 100%;
+  width: 100%;
+}
+
+.btnPrimary {
+  left: 0;
+  transform: inherit;
+  margin: auto;
+}
+
+.btnSecondry {
+  background-color: #3cb46d;
+  border-color: #3cb46d;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  left: 50%;
+  transform: translateX(-104%);
+  top: 47px;
+  transition: .4s;
+}
+
+.btnSecondry:hover {
+  background-color: #32965b;
+  border-color: #32965b;
+  color: white;
+}
+
+.btnSecondry:focus {
+  background-color: #32965b;
+  border-color: #32965b;
+}
+
+.designPage {
+  width: 350px;
+  margin: auto;
+}
