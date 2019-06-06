@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\gamePages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MemberGameController extends Controller
 {

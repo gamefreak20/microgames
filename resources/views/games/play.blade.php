@@ -4,6 +4,7 @@
 @endsection
 
 @section('javascript')
+    <script src="{{asset('js/playGame.js')}}"></script>
 @endsection
 
 @section('lateJavascript')
