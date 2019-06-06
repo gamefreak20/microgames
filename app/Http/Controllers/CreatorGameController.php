@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\gameObject;
 use App\gamePages;
+use Chumper\Zipper\Facades\Zipper;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use ZipArchive;
 
 class CreatorGameController extends Controller
 {
@@ -49,10 +53,24 @@ class CreatorGameController extends Controller
             'selectedTags' => 'max:191',
         ]);
 
+
         $game = gamePages::create(['name' => $input['title'], 'user_id' => Auth::user()->id]);
 
         request()->mainPicture->move(public_path('images/games/main'), $game['id'].".".request()->mainPicture->getClientOriginalExtension());
         request()->game->move(public_path('games'), $game['id'].".".request()->game->getClientOriginalExtension());
+
+        $Path = public_path("games\\".$game['id'].".".request()->game->getClientOriginalExtension());
+        $deletePath = public_path()."\games\\".$game['id'].".".request()->game->getClientOriginalExtension();
+
+        $za = new ZipArchive();
+
+        $za->open($Path);
+
+        $name =  explode('/', $za->statIndex(0)['name'])[0];
+
+        \Zipper::make($Path)->extractTo('games');
+
+        rename(public_path('games')."\\".$name, public_path("games\\".$game['id']));
 
         return var_dump($input);
     }
