@@ -18,24 +18,26 @@
     @foreach($games as $game)
 
 
-        <a href=""><div class="innerDiv">
-          <div class="gameName">
+        <div class="innerDiv">
+          <a href="">
+          <div class="totalImg"><div class="gameName">
             {{$game->name}}
           </div>
-
-          <div class="totalImg">
             <div>
               <img src="{{asset('images/games/main/'.$game->id.'.png')}}" alt="image of {{$game->name}}" class="banner">
             </div>
             <div class="underImage">
             </div>
-          </div>
-
-          @foreach($game->tags()->get() as $tag)
+          </div></a>
+          <div class="tagWrapper">
+            @foreach($game->tags()->get() as $tag)
+            <div class="tag">
               {{$tag->name}}
-          @endforeach
+            </div>
+            @endforeach
+          </div>
+        </div>
 
-        </div></a>
     @endforeach
   </div>
 @endsection
