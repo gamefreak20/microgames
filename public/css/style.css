@@ -1,5 +1,6 @@
-body, html {
+html, body {
   width: 100%;
+  height: 100%;
 }
 
 a {
@@ -96,14 +97,15 @@ a:hover {
 
 /* SearchBar and form inputs */
 
-.form-control {
+.formControl {
   height: 60px;
   border-radius: 30px;
   font-size: 21px;
   padding-left: 20px;
+  border: 0;
 }
 
-.form-control:first-child {
+.formControl:first-child {
   box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.1);
 }
 
@@ -199,4 +201,76 @@ a:hover {
   width: 55%;
   float: left;
   transition: .4s;
+}
+
+.row {
+  margin: 0;
+}
+
+.btnPrimary {
+  background-color: #3cb46d;
+  border-color: #3cb46d;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  left: 50%;
+  transform: translate( -50%);
+}
+
+.btnPrimary:hover  {
+  background-color: #32965b;
+  border-color: #32965b;
+  color: white;
+}
+
+.btnPrimary:focus  {
+  background-color: #32965b;
+  border-color: #32965b;
+}
+
+.form-control:not(:first-child)
+{
+  max-width: 350px;
+  margin: auto;
+}
+
+.formTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: #3CB46D;
+}
+
+.formHr {
+  width: 450px;
+}
+
+.custom-file{
+  max-width: 350px;
+  position: relative;
+  left: 50%;
+  transform: translate( -50%);
+}
+
+.searchedTags {
+  text-align: center;
+  color: #495057;
+}
+
+.searchedTags button {
+  position: relative;
+  background-color: #3cb46d;
+  border-color: #3cb46d;
+  color: white;
+  font-weight: 400;
+  border: 0;
+  border-radius: 3px;
+  padding: 6px 12px;
+  transition: .4s;
+}
+
+.searchedTags button:hover {
+  background-color: #32965b;
+  border-color: #32965b;
+  color: white;
 }
