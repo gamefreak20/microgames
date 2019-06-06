@@ -19,8 +19,13 @@ $(document).ready(function(){
       var currentPrct = xpNow / maxPrct;
       var xpNeededPrct = 100 - currentPrct;
 
-      currentPrct = currentPrct -2.5;
-      xpNeededPrct = xpNeededPrct -2.5;
+      if ( currentPrct <= 2.5) {
+        xpNeededPrct = xpNeededPrct - currentPrct - 5;
+      } else {
+        currentPrct = currentPrct -2.5;
+        xpNeededPrct = xpNeededPrct -2.5;
+      }
+
 
       $('.xpDone').css('width', currentPrct+'%');
       $('.xpNeeded').css('width', xpNeededPrct+'%');
