@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\tags;
+use App\User;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
@@ -17,5 +18,11 @@ class AjaxController extends Controller
     {
         $tag = tags::findOrFail($id);
         return json_encode($tag);
+    }
+
+    public function users($name)
+    {
+        $user = User::where('name', 'LIKE', '%'.$name.'%')->get();
+        return json_encode($user);
     }
 }

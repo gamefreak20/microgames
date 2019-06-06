@@ -18,9 +18,11 @@ Route::get('/', 'MemberGameController@index')->name('game');
 Route::group(['middleware' => ['role:Member|Creator|Admin']], function () {
     //inbox
     Route::get('/inbox', 'MemberInboxController@index')->name('memberInboxIndex');
-    Route::get('/inbox/{id}', 'MemberInboxController@detail')->name('memberInboxDetail');
-    Route::get('/inbox/create', 'MemberInboxController@create')->name('memberInboxCreate');
+    Route::delete('/inbox/{id}', 'MemberInboxController@destroy')->name('memberInboxDestroy');
+    Route::get('/inbox/create', 'MemberInboxController@create')->name('memberInboxCreateForm');
+    Route::post('/inbox/create', 'MemberInboxController@store')->name('memberInboxCreate');
     Route::get('/inbox/create/{id}', 'MemberInboxController@createId')->name('memberInboxCreateWithId');
+    Route::get('/inbox/{id}', 'MemberInboxController@detail')->name('memberInboxDetail');
 
     //profile
     Route::get('/profile', 'MemberProfileController@index')->name('memberProfile');
@@ -57,6 +59,7 @@ Route::get('login/{service}/callback',
 
 Route::get('tags/{name}', 'AjaxController@tags')->name('AjaxTags');
 Route::get('tag/{name}', 'AjaxController@tag')->name('AjaxTag');
+Route::get('users/{name}', 'AjaxController@users')->name('AjaxTag');
 
 //test need to remove
 
