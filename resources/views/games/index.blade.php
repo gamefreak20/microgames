@@ -24,7 +24,7 @@
             {{$game->name}}
           </div>
             <div>
-              <img src="{{asset('images/games/main/'.$game->id.'.png')}}" alt="image of {{$game->name}}" class="banner">
+              <img src="{{asset(glob('images/games/main/'.$game->id.'.*')[0])}}" alt="image of {{$game->name}}" class="banner">
             </div>
             <div class="underImage">
             </div>

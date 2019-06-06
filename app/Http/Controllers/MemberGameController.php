@@ -13,15 +13,25 @@ class MemberGameController extends Controller
         return view('games.index', compact('games'));
     }
 
-    public function detail($id, $name = null)
+    public function search($name)
     {
-        if ($name = null) {
-            //search for game with name = $id
-            //if more exists to go search page with the name = $id
+        $games = gamePages::where('name', $name)->get();
+        if (count($games) > 1) {
+            return view('games.index', compact('games'));
         } else {
-            //run the game with id = $id
+            return view('games.detail', compact('games'));
         }
-        return view('games.detail');
+    }
+
+    public function searchBar(Request $request)
+    {
+        return $this->search($request->name);
+    }
+
+    public function detail($id, $name)
+    {
+        $game = gamePages::findOrFail($id);
+        return view('games.detail', compact('game'));
     }
 
     public function play($id, $name)
