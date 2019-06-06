@@ -70,8 +70,12 @@
               <li class="dropItem">
                 <a href=""><p class="dropdownText">Options</p></a>
               </li>
+
               <li class="dropItem">
-                <a href=""><p class="dropdownText">Logout</p></a>
+                  <form id="logoutForm" action="{{route('logout')}}" method="post">
+                      {{ csrf_field() }}
+                        <a href="#" onclick="document.getElementById('logoutForm').submit();"><p class="dropdownText">Logout</p></a>
+                  </form>
               </li>
             </ul>
           </div>
