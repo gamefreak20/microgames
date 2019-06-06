@@ -40,12 +40,13 @@ Route::group(['middleware' => ['role:Creator|Admin']], function () {
 
 Route::group(['middleware' => ['role:Admin']], function () {
     //admin users
-    Route::get('/admin/users', 'AdminUsersController@index')->name('adminUsersIndex');
+    Route::get('/admin/users/roles', 'AdminUsersController@roles')->name('adminUsersRoles');
 });
 
 //games
+Route::get('/searchBar', 'MemberGameController@searchBar')->name('gameDetailSearchBar');
 
-Route::get('/game/{name}', 'MemberGameController@search')->name('gameDetail');
+Route::get('/game/{name}', 'MemberGameController@search')->name('gameDetailName');
 Route::get('/game/{id}/{name}', 'MemberGameController@detail')->name('gameDetail');
 Route::get('/play/{id}/{name}', 'MemberGameController@play')->name('gamePlay');
 

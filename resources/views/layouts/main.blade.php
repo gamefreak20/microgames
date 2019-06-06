@@ -27,14 +27,15 @@
     <div>
       <nav class="navbar navbar-expand-lg navbar-light"
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="form-inline my-2 my-lg-0 left">
-            <input class="formControl mr-sm-2" type="search" placeholder="Search a game..." aria-label="Search">
-            <button class="boxIcon">
-              <svg id="searchImg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
-                <path d="M67.86,61.064a8.113,8.113,0,0,0-5.839,5.8,2.667,2.667,0,0,1-5.293-.467c0-1.92,1.613-4.84,3.813-7.026,2.16-2.133,4.733-3.64,6.852-3.64a2.709,2.709,0,0,1,2.667,2.707A2.675,2.675,0,0,1,67.86,61.064Zm36.651,34.958a5.293,5.293,0,1,1-7.479,7.493L81.713,88.208A23.341,23.341,0,1,1,89.2,80.716ZM86.059,68.4A16.666,16.666,0,1,0,69.393,85.062,16.671,16.671,0,0,0,86.059,68.4Z" transform="translate(-46.062 -45.065)"  fill-rule="evenodd"/>
-              </svg>
-            </button>
-          </form>
+{{--          <form class="form-inline my-2 my-lg-0 left">--}}
+            {!! Form::open(['method'=>'get', 'action'=>'MemberGameController@searchBar', 'class'=>'form-inline my-2 my-lg-0 left']) !!}
+                <input class="formControl mr-sm-2" name="name" type="search" placeholder="Search a game..." aria-label="Search">
+                <button class="boxIcon">
+                  <svg id="searchImg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+                    <path d="M67.86,61.064a8.113,8.113,0,0,0-5.839,5.8,2.667,2.667,0,0,1-5.293-.467c0-1.92,1.613-4.84,3.813-7.026,2.16-2.133,4.733-3.64,6.852-3.64a2.709,2.709,0,0,1,2.667,2.707A2.675,2.675,0,0,1,67.86,61.064Zm36.651,34.958a5.293,5.293,0,1,1-7.479,7.493L81.713,88.208A23.341,23.341,0,1,1,89.2,80.716ZM86.059,68.4A16.666,16.666,0,1,0,69.393,85.062,16.671,16.671,0,0,0,86.059,68.4Z" transform="translate(-46.062 -45.065)"  fill-rule="evenodd"/>
+                  </svg>
+                </button>
+            </form>
           <div class="boxBar center">
             <div class="boxIcon">
               <p class="levelText">lvl <b class="levelTitle">

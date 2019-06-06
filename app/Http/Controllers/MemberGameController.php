@@ -23,6 +23,11 @@ class MemberGameController extends Controller
         }
     }
 
+    public function searchBar(Request $request)
+    {
+        return $this->search($request->name);
+    }
+
     public function detail($id, $name)
     {
         $game = gamePages::findOrFail($id);
