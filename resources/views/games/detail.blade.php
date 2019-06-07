@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('css')
+<link href="{{ asset('./css/detail.css') }}" rel="stylesheet">
 @endsection
 
 @section('javascript')
@@ -15,14 +16,12 @@
     @foreach($pages as $page)
 
         @if ($page->kind == 'title')
-            What: {{$page->what}}
+            <div class="titleBox">{{$page->what}}</div>
         @elseif ($page->kind == 'text')
-            What: {{$page->what}}
+            <div class="textBox">{{$page->what}}</div>
         @elseif ($page->kind == 'file')
-            <img src="{{asset('images/games/page/'.$page->what)}}">
+            <div class="imgBox"><img src="{{asset('images/games/page/'.$page->what)}}"></div>
         @endif
-
-        <hr>
 
     @endforeach
 

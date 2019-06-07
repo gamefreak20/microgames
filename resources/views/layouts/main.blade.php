@@ -25,7 +25,8 @@
 
   <body>
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light"
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <span class="logo"><img src="{{asset('images/games/header/logo.png')}}" alt="logo"/></span>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 {{--          <form class="form-inline my-2 my-lg-0 left">--}}
             {!! Form::open(['method'=>'get', 'action'=>'MemberGameController@searchBar', 'class'=>'form-inline my-2 my-lg-0 left']) !!}
@@ -47,7 +48,7 @@
                   </b></p>
           </div>
           <div class="boxTxtBar">
-            <p class="boxText" id="xp">xp
+            <p class="boxText1" id="xp">xp
                 @if (\Illuminate\Support\Facades\Auth::check())
                     {{\Illuminate\Support\Facades\Auth::user()->exp}}
                     |

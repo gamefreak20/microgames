@@ -1,0 +1,28 @@
+.titleBox {
+  text-align: center;
+  color: white;
+  background-color: #3CB46D;
+  width: 100%;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.textBox {
+  text-align: center;
+  color: black;
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.imgBox img {
+  width: 50%;
+}
+.imgBox {
+  margin: auto;
+}
