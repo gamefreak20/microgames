@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 05:11 PM
+-- Generation Time: Jun 07, 2019 at 05:16 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -55,6 +55,15 @@ CREATE TABLE `game_objects` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `game_objects`
+--
+
+INSERT INTO `game_objects` (`id`, `game_pages_id`, `order_number`, `kind`, `what`, `created_at`, `updated_at`) VALUES
+(1, '040153ce-abb9-438f-b898-397fde47bfcf', 1, 'title', 'tes', '2019-06-07 00:54:01', '2019-06-07 00:54:01'),
+(2, '040153ce-abb9-438f-b898-397fde47bfcf', 2, 'text', 'stt', '2019-06-07 00:54:01', '2019-06-07 00:54:01'),
+(3, '040153ce-abb9-438f-b898-397fde47bfcf', 3, 'file', '040153ce-abb9-438f-b898-397fde47bfcf.3.PNG', '2019-06-07 00:54:01', '2019-06-07 00:54:01');
+
 -- --------------------------------------------------------
 
 --
@@ -75,9 +84,7 @@ CREATE TABLE `game_pages` (
 --
 
 INSERT INTO `game_pages` (`id`, `name`, `slug`, `user_id`, `created_at`, `updated_at`) VALUES
-('22a8a137-5e76-4496-8bd9-66a80806bfc1', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-06 09:47:14', '2019-06-06 09:47:14'),
-('22a8a137-5e76-4496-8bd9-66a80806bfc2', 'test', 'test', 'da688641-a6af-4fa7-98ff-68e04177b3e3', '2019-06-06 09:47:14', '2019-06-06 09:47:14'),
-('38846937-3bcf-4146-b539-88eb06558b2f', 'test', 'test-1', '5071aade-6264-4b4c-bce2-9e13eddc700b', '2019-06-06 13:05:25', '2019-06-06 13:05:25');
+('040153ce-abb9-438f-b898-397fde47bfcf', 'Super Card Battles Pro', 'super-card-battles-pro', '60ce3e09-effc-4592-806a-97d2583e741b', '2019-06-06 23:44:11', '2019-06-06 23:44:11');
 
 -- --------------------------------------------------------
 
@@ -172,8 +179,7 @@ CREATE TABLE `model_has_roles` (
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
-(2, 'App\\User', '60ce3e09-effc-4592-806a-97d2583e741b'),
-(3, 'App\\User', 'da688641-a6af-4fa7-98ff-68e04177b3e3');
+(5, 'MicroGames\\User', '60ce3e09-effc-4592-806a-97d2583e741b');
 
 -- --------------------------------------------------------
 
@@ -257,9 +263,7 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'Member', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
 (2, 'Creator', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
-(3, 'Admin', 'web', '2019-06-05 21:59:22', '2019-06-05 21:59:22'),
-(4, 'test', 'web', '2019-06-06 10:40:49', '2019-06-06 10:40:49'),
-(5, 'test3', 'web', '2019-06-06 10:41:15', '2019-06-06 10:41:15');
+(5, 'Admin', 'web', '2019-06-06 10:41:15', '2019-06-06 10:41:15');
 
 -- --------------------------------------------------------
 
@@ -322,7 +326,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `provider_id`, `provider`, `profile_picture`, `level`, `exp`, `remember_token`, `created_at`, `updated_at`) VALUES
-('60ce3e09-effc-4592-806a-97d2583e741b', 'Joey', 'joey', 'stil', 'joeystil3@gmail.com', NULL, '$2y$10$5.5zRq4OlwrY4yn0OrNiu.LGdd8EZNJwyV3uY7l4KGjHnMveQI42C', NULL, NULL, 0, 0, 0, NULL, '2019-06-06 13:06:30', '2019-06-06 13:06:30');
+('60ce3e09-effc-4592-806a-97d2583e741b', 'Joey', 'joey', 'stil', 'joeystil3@gmail.com', NULL, '$2y$10$iLpMZwY5DL7cCjMN3c77K.VHkEI9enlgvLwBts3FQaTNV1WCDY2lO', NULL, NULL, 0, 19, 750, NULL, '2019-06-06 13:06:30', '2019-06-06 21:42:06');
 
 --
 -- Indexes for dumped tables
@@ -442,7 +446,7 @@ ALTER TABLE `banneds`
 -- AUTO_INCREMENT for table `game_objects`
 --
 ALTER TABLE `game_objects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `game_pages_tags`
@@ -484,7 +488,7 @@ ALTER TABLE `requests`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tags`
