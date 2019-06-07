@@ -13,6 +13,6 @@
 
 @section('content')
 
-
+    @php(require_once asset('games/'.$id.'/index.html'))
 
 @endsection

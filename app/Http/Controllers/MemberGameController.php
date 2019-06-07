@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MicroGames\Http\Controllers;
 
-use App\gamePages;
+use MicroGames\gameObject;
+use MicroGames\gamePages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,12 +32,13 @@ class MemberGameController extends Controller
 
     public function detail($id, $name)
     {
-        $game = gamePages::findOrFail($id);
-        return view('games.detail', compact('game'));
+        $pages = gameObject::where('game_pages_id', $id)->get();
+        return view('games.detail', compact('pages'));
     }
 
     public function play($id, $name)
     {
-        return view('games.play');
+        return redirect('games/'.$id.'/index.html');
+//        return view('games.play', compact('id'));
     }
 }

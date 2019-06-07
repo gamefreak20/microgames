@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,6 @@ class tags extends Model
 
     public function gamePages()
     {
-        return $this->belongsToMany('App\Tags');
+        return $this->belongsToMany('MicroGames\Tags');
     }
 }

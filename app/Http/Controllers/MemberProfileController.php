@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MicroGames\Http\Controllers;
 
-use App\User;
+use MicroGames\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

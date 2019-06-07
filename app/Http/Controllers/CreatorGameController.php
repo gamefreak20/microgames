@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MicroGames\Http\Controllers;
 
-use App\gameObject;
-use App\gamePages;
+use MicroGames\gameObject;
+use MicroGames\gamePages;
 use Chumper\Zipper\Facades\Zipper;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -21,9 +21,38 @@ class CreatorGameController extends Controller
         return view('creator.game.create');
     }
 
-    public function createLayout($id, $name)
+    public function createLayout($id)
     {
-        return view('creator.game.createLayout');
+        return view('creator.game.createLayout', compact('id'));
+    }
+
+    public function storeLayout(Request $request)
+    {
+        $whatIsRequested = explode(',', $request->totalDivs);
+        array_shift($whatIsRequested);
+        $testArray = array();
+        $i = 0;
+        $gameId = $request->gameId;
+
+        foreach ($whatIsRequested as $element) {
+            $i++;
+            if (strpos($element, 'title') === 0) {
+                $name = 'title'.$i;
+                gameObject::create(['game_pages_id' => $gameId, 'order_number' => $i, 'kind' => 'title', 'what' => $request->$name]);
+            } elseif (strpos($element, 'file') === 0) {
+                $name = 'file'.$i;
+                request()->validate([
+                    $name => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ]);
+                request()->$name->move(public_path('images/games/page'), $gameId.".".$i.".".request()->$name->getClientOriginalExtension());
+                gameObject::create(['game_pages_id' => $gameId, 'order_number' => $i, 'kind' => 'file', 'what' => $gameId.".".$i.".".request()->$name->getClientOriginalExtension()]);
+            } elseif (strpos($element, 'text') === 0) {
+                $name = 'text'.$i;
+                gameObject::create(['game_pages_id' => $gameId, 'order_number' => $i, 'kind' => 'text', 'what' => $request->$name]);
+            }
+        }
+
+        return redirect(route('gameDetail', [$gameId, 'game']));
     }
 
     public function sluggable()
@@ -44,7 +73,7 @@ class CreatorGameController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'mainPicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'mainPicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'game' => 'required',
         ]);
 
@@ -71,7 +100,7 @@ class CreatorGameController extends Controller
 
         rename(public_path('games')."\\".$name, public_path("games\\".$game['id']));
 
-        return var_dump($input);
+        return redirect(route('game'));
     }
 
 }

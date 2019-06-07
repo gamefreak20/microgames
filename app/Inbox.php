@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +15,6 @@ class Inbox extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id_sender', 'id');
+        return $this->belongsTo('MicroGames\User', 'user_id_sender', 'id');
     }
 }
