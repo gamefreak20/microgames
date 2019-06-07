@@ -36,9 +36,11 @@
 }
 
 .playBox {
-  background-color: white;]
-  width: 100%;
-  white;
+  background-color: white;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
 }
 
 .playBox button {
