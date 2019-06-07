@@ -19,12 +19,12 @@
 
 
         <div class="innerDiv">
-          <a href="">
+          <a href="{{route('gameDetail', [$game->id, $game->name])}}">
           <div class="totalImg"><div class="gameName">
             {{$game->name}}
           </div>
             <div>
-              <img src="{{asset(glob('images/games/main/'.$game->id.'.*')[0])}}" alt="image of {{$game->name}}" class="banner">
+                <img src="{{asset(glob('images/games/main/'.$game->id.'.*')[0])}}" alt="image of {{$game->name}}" class="banner">
             </div>
             <div class="underImage">
             </div>

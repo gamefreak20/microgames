@@ -17,12 +17,8 @@ class MemberGameController extends Controller
 
     public function search($name)
     {
-        $games = gamePages::where('name', $name)->get();
-        if (count($games) > 1) {
+        $games = gamePages::where('name', 'LIKE', '%'.$name.'%')->get();
             return view('games.index', compact('games'));
-        } else {
-            return view('games.detail', compact('games'));
-        }
     }
 
     public function searchBar(Request $request)

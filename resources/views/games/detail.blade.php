@@ -9,8 +9,7 @@
 <script>
 function setDirLink()
 {
-  var link = "{{route('gamePlay', [$id, $name])}}";
-  window.open(link, '_blank', 'toolBar=no,top=100,left=250,width=1350,height=800');
+    $(".playBox").html("<iframe src=\"{{asset('games/'.$id)}}\" height=\"800\" width=\"1350\"></iframe>");
 }
 </script>
 @endsection
