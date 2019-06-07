@@ -32,7 +32,7 @@ class MemberGameController extends Controller
 
     public function detail($id, $name)
     {
-        $pages = gameObject::where('game_pages_id', $id)->get();
+        $pages = gameObject::where('game_pages_id', $id)->orderBy('order_number', 'asc')->get();
         return view('games.detail', compact('pages'));
     }
 
