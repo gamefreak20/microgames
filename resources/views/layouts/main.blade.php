@@ -61,7 +61,7 @@
           </div>
         </div>
         @if (\Illuminate\Support\Facades\Auth::check())
-        <div class="boxBar right" id="profile" onclick="dropDown()">
+        <div class="boxBar right1" id="profile" onclick="dropDown()">
           <div class="boxIcon">
           </div>
           <div class="boxTxtBar">

@@ -90,6 +90,13 @@ a:hover {
   margin-left: 10px;
 }
 
+.right1
+{
+  position: absolute;
+  right: 10px;
+  margin-left: 10px;
+}
+
 .left
 {
   position: absolute;
