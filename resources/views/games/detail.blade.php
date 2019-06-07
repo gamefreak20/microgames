@@ -6,6 +6,13 @@
 
 @section('javascript')
 <script src="{{ asset('./js/detail.js') }}"></script>
+<script>
+function setDirLink()
+{
+  var link = "{{route('gamePlay', [$id, $name])}}";
+  window.open(link, '_blank');
+}
+</script>
 @endsection
 
 @section('lateJavascript')
@@ -14,7 +21,7 @@
 
 @section('content')
     <div class="playBox">
-      <button class="btn btnPrimary" onclick="window.open('{{route(\'gamePlay\')}}', '_blank');">Play!</button>
+      <button class="btn btnPrimary" onclick="setDirLink()">Play!</button>
     </div>
     @foreach($pages as $page)
 
