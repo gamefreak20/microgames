@@ -26,7 +26,7 @@
   <body>
     <div>
       <nav class="navbar navbar-expand-lg navbar-light">
-        <span class="logo"><img src="{{asset('images/games/header/logo.png')}}" alt="logo"/></span>
+        <a href="{{route('game')}}"><span class="logo"><img src="{{asset('images/games/header/logo.png')}}" alt="logo"/></span></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 {{--          <form class="form-inline my-2 my-lg-0 left">--}}
             {!! Form::open(['method'=>'get', 'action'=>'MemberGameController@searchBar', 'class'=>'form-inline my-2 my-lg-0 left']) !!}
