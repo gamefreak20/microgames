@@ -28,11 +28,19 @@ class CreatorGameController extends Controller
 
     public function storeLayout(Request $request)
     {
+        $gameId = $request->gameId;
+        $game = gamePages::findOrFail($gameId);
+        if ($game->user_id != Auth::user()->id) {
+            return redirect(route('game'));
+        }
+
+        if ($game->gameObject != null) {
+            return redirect(route('game'));
+        }
         $whatIsRequested = explode(',', $request->totalDivs);
         array_shift($whatIsRequested);
         $testArray = array();
         $i = 0;
-        $gameId = $request->gameId;
 
         foreach ($whatIsRequested as $element) {
             $i++;
