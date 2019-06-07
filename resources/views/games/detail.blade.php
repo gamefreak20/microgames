@@ -10,7 +10,7 @@
 function setDirLink()
 {
   var link = "{{route('gamePlay', [$id, $name])}}";
-  window.open(link, '_blank');
+  window.open(link, '_blank', 'toolBar=no,top=500,left=500,width=1350,height=800');
 }
 </script>
 @endsection
