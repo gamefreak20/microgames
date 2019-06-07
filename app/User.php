@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -59,41 +59,41 @@ class User extends Authenticatable
 
     public function gamePages()
     {
-        return $this->hasMany('App\gamePages');
+        return $this->hasMany('MicroGames\gamePages');
     }
 
     public function inbox()
     {
-        return $this->hasMany('App\Inbox', 'user_id_receiver');
+        return $this->hasMany('MicroGames\Inbox', 'user_id_receiver');
     }
 
     public function inboxSender()
     {
-        return $this->hasMany('App\Inbox', 'user_id_sender');
+        return $this->hasMany('MicroGames\Inbox', 'user_id_sender');
     }
 
     public function banned()
     {
-        return $this->hasMany('App\Banned');
+        return $this->hasMany('MicroGames\Banned');
     }
 
     public function bannedBy()
     {
-        return $this->hasMany('App\Banned', 'banned_by');
+        return $this->hasMany('MicroGames\Banned', 'banned_by');
     }
 
     public function requests()
     {
-        return $this->hasMany('App\Requests');
+        return $this->hasMany('MicroGames\Requests');
     }
 
     public function requestsChecked()
     {
-        return $this->hasMany('App\Requests', 'checked_by');
+        return $this->hasMany('MicroGames\Requests', 'checked_by');
     }
 
     public function reactions()
     {
-        return $this->hasMany('App\Reactions');
+        return $this->hasMany('MicroGames\Reactions');
     }
 }

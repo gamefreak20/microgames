@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MicroGames\Http\Controllers;
 
-use App\gameObject;
-use App\gamePages;
+use MicroGames\gameObject;
+use MicroGames\gamePages;
 use Chumper\Zipper\Facades\Zipper;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Sluggable;

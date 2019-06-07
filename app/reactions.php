@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,11 +15,11 @@ class reactions extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('MicroGames\User');
     }
 
     public function gamePage()
     {
-        return $this->belongsTo('App\GamePages', 'id', 'game_id');
+        return $this->belongsTo('MicroGames\GamePages', 'id', 'game_id');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 

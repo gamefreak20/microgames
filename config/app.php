@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        MicroGames\Providers\AppServiceProvider::class,
+        MicroGames\Providers\AuthServiceProvider::class,
+        // MicroGames\Providers\BroadcastServiceProvider::class,
+        MicroGames\Providers\EventServiceProvider::class,
+        MicroGames\Providers\RouteServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
 

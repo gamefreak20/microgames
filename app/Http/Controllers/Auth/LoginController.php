@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace MicroGames\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\User;
+use MicroGames\Http\Controllers\Controller;
+use MicroGames\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;

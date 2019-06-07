@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MicroGames\Http\Controllers;
 
-use App\tags;
-use App\User;
+use MicroGames\tags;
+use MicroGames\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 

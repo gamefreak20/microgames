@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace MicroGames;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
@@ -48,21 +48,21 @@ class gamePages extends Model
 
     public function gameObject()
     {
-        return $this->hasOne('App\GameObject', 'game_pages_id');
+        return $this->hasOne('MicroGames\GameObject', 'game_pages_id');
     }
 
     public function requests()
     {
-        return $this->hasOne('App\Requests');
+        return $this->hasOne('MicroGames\Requests');
     }
 
     public function reactions()
     {
-        return $this->hasMany('App\Reactions', 'game_id');
+        return $this->hasMany('MicroGames\Reactions', 'game_id');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('App\Tags');
+        return $this->belongsToMany('MicroGames\Tags');
     }
 }
