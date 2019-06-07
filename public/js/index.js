@@ -1,4 +1,5 @@
 var bannerHeight
+var bannerWidth
 
 $(document).ready(function(){
 
