@@ -2,6 +2,7 @@
 
 namespace MicroGames\Http\Controllers;
 
+use MicroGames\gameObject;
 use MicroGames\gamePages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +32,8 @@ class MemberGameController extends Controller
 
     public function detail($id, $name)
     {
-        $game = gamePages::findOrFail($id);
-        return view('games.detail', compact('game'));
+        $pages = gameObject::where('game_pages_id', $id)->get();
+        return view('games.detail', compact('pages'));
     }
 
     public function play($id, $name)
