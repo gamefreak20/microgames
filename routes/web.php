@@ -68,6 +68,8 @@ Route::get('login/{service}/callback',
 Route::get('tags/{name}', 'AjaxController@tags')->name('AjaxTags');
 Route::get('tag/{name}', 'AjaxController@tag')->name('AjaxTag');
 Route::get('users/{name}', 'AjaxController@users')->name('AjaxTag');
+Route::get('getExp', 'AjaxController@getExp')->name('AjaxGetExp');
+Route::get('randomNumber', 'AjaxController@randomNumber')->name('AjaxRandomNumber');
 
 //test need to remove
 
