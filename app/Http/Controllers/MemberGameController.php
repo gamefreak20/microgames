@@ -37,6 +37,7 @@ class MemberGameController extends Controller
 
     public function play($id, $name)
     {
-        return view('games.play');
+        return redirect('games/'.$id.'/index.html');
+//        return view('games.play', compact('id'));
     }
 }

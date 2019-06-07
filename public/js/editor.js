@@ -26,33 +26,36 @@ function selected(id) {
 }
 
 function createDiv() {
+    if (select){
+      numberOfElements++;
 
-  numberOfElements++;
+      var heightClass = $(".height").html();
+      var createDivs = $("#createDivs").html();
 
-  var heightClass = $(".height").html();
-  var createDivs = $("#createDivs").html();
+      var addClass = '';
+      switch (idSelect) {
+        case 1:
+            addClass = "<div>"+
+            "<textarea name='text" + numberOfElements + "' class='form-control designPage' placeholder='Typ your text here...'></textarea>"+
+            "</div><hr />";
+            $("#totalDivs").val($("#totalDivs").val()+',text'+numberOfElements);
+            break;
+        case 2:
+            addClass = "<div>"+
+            "<input type='text' name='title" + numberOfElements + "' class='form-control designPage' placeholder='Typ your title here...'>"+
+            "</div><hr />";
+            $("#totalDivs").val($("#totalDivs").val()+',title'+numberOfElements);
+            break;
+        case 3:
+            addClass = "<div class='custom-file'>"+
+            "<input type='file' class='custom-file-input designPage' id='customFile' name='file" + numberOfElements + "'" + numberOfElements + ">"+
+            "<label class='custom-file-label' for='customFile'>Choose file</label>"+
+            "</div><hr />";
+            $("#totalDivs").val($("#totalDivs").val()+',file'+numberOfElements);
+            break;
+      }
 
-  var addClass = '';
-  switch (idSelect) {
-    case 1:
-        addClass = "<div>"+
-        "<textarea name='text:" + numberOfElements + "' class='form-control designPage' placeholder='Typ your text here...'></textarea>"+
-        "</div><hr />";
-        break;
-    case 2:
-        addClass = "<div>"+
-        "<input type='text' name='title:" + numberOfElements + "' class='form-control designPage' placeholder='Typ your title here...'>"+
-        "</div><hr />";
-        break;
-    case 3:
-        addClass = "<div class='custom-file'>"+
-        "<input type='file' class='custom-file-input designPage' id='customFile' name='fileI0nput'" + numberOfElements + ">"+
-        "<label class='custom-file-label' for='customFile'>Choose file</label>"+
-        "</div><hr />";
-        break;
-  }
-
-  $('#exampleModal').modal('hide');
-  $("#createDivs").html(createDivs+addClass);
-
+      $('#exampleModal').modal('hide');
+      $("#createDivs").html(createDivs+addClass);
+    }
 }

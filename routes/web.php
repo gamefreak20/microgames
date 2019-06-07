@@ -37,7 +37,8 @@ Route::group(['middleware' => ['role:Creator|Admin']], function () {
     //game
     Route::get('/game/create', 'CreatorGameController@create')->name('creatorGameCreate');
     Route::post('/game/create', 'CreatorGameController@store')->name('creatorGameCreatePost');
-    Route::get('/gameLayout/{id}/{name}', 'CreatorGameController@createLayout')->name('creatorGameLayout');
+    Route::get('/gameLayout/{id}', 'CreatorGameController@createLayout')->name('creatorGameLayout');
+    Route::post('/game/createLayout', 'CreatorGameController@storeLayout')->name('creatorGameCreatePostLayout');
 });
 
 Route::group(['middleware' => ['role:Admin']], function () {
