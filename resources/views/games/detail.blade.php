@@ -31,7 +31,6 @@ function setDirLink()
             <div class="textBox">{{$page->what}}</div>
         @elseif ($page->kind == 'file')
             <div class="imgBox"><img class="img" src="{{asset('images/games/page/'.$page->what)}}"></div>
-            <div class="underBox"></div>
         @endif
 
     @endforeach
