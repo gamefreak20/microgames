@@ -15,6 +15,7 @@ function setDirLink()
 @endsection
 
 @section('lateJavascript')
+    <script src="{{asset('js/playGame.js')}}"></script>
 @endsection
 
 

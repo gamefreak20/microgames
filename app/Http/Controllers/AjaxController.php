@@ -44,30 +44,30 @@ class AjaxController extends Controller
     public function getExp(Request $request)
     {
         if (Auth::check()) {
-            if ($request->empty) {
-                session(['time' => time()]);
-            } else {
-                if ($request->number === session('randomString')) {
-                    if (session('time') == "") {
+            $empty = $request->empty;
+            if ($request->number == session('randomString')) {
+                if (session('time') == "") {
+                    session(['time' => time()]);
+                    return 2;
+                } else {
+                    if (time() - (int)session('time') >= 300) {
                         session(['time' => time()]);
-                    } else {
-                        if (time() - (int)session('time') >= 300) {
-                            session(['time' => time()]);
-                            $user = User::findOrFail(Auth::user()->id);
-                            $currentExp = $user->exp;
-                            $currentLevel = (int)$user->level;
-                            $neededExp = 150 * $currentLevel * $currentLevel/3;
+                        $user = User::findOrFail(Auth::user()->id);
+                        $currentExp = $user->exp;
+                        $currentLevel = (int)$user->level;
+                        $neededExp = 150 * $currentLevel * $currentLevel/3;
 
-                            if ($currentExp >= $neededExp) {
-                                $currentLevel++;
-                                $currentExp = 0;
-                            }
-
-                            $user->update(['exp' => (int)$currentExp+50, 'level' => $currentLevel]);
-                            return json_encode(['currentExp' => (int)$currentExp+50 , 'level' => $currentLevel, 'neededExp' => $neededExp]);
+                        if ($currentExp >= $neededExp) {
+                            $currentLevel++;
+                            $currentExp = 0;
                         }
+
+                        $user->update(['exp' => (int)$currentExp+50, 'level' => $currentLevel]);
+                        return json_encode(['currentExp' => (int)$currentExp+50 , 'level' => $currentLevel, 'neededExp' => $neededExp]);
                     }
                 }
+            } else {
+                return 3;
             }
         }
     }

@@ -1,3 +1,5 @@
+var first = true;
+getGameExp(true);
 setInterval(function()
 {
 
@@ -5,12 +7,9 @@ setInterval(function()
 
 }, 300000);
 
-$( document ).ready(function() {
-    getGameExp(true)
-});
-
 function getGameExp(empty = false)
 {
+    console.log('test');
     $.ajax({
         method: "GET",
         url: "../../randomNumber",
@@ -25,6 +24,10 @@ function getGameExp(empty = false)
             var newData = JSON.parse(data);
             $("#xp").text(newData.currentExp + " | " + newData.neededExp);
             $(".levelTitle").text(newData.level);
+            if (first) {
+                first = false;
+                getGameExp();
+            }
         });
     });
 }
