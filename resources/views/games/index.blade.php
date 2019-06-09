@@ -19,7 +19,7 @@
 
 
         <div class="innerDiv">
-          <a href="{{route('gameDetail', [$game->id, $game->name])}}">
+          <a href="{{route('gameDetail', [$game->id, $game->slug])}}">
           <div class="totalImg"><div class="gameName">
             {{$game->name}}
           </div>

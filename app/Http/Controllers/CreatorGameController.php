@@ -80,6 +80,7 @@ class CreatorGameController extends Controller
      */
     public function store(Request $request)
     {
+
         request()->validate([
             'mainPicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'game' => 'required',

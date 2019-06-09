@@ -4,7 +4,7 @@ namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tags extends Model
+class Tags extends Model
 {
     public $timestamps = false;
 
