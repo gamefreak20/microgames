@@ -86,6 +86,7 @@ class CreatorGameController extends Controller
             'game' => 'required',
         ]);
 
+
         $input = $request->validate([
             'title' => 'required|max:191',
             'selectedTags' => 'max:191',
@@ -97,7 +98,7 @@ class CreatorGameController extends Controller
         request()->mainPicture->move(public_path('images/games/main'), $game['id'].".".request()->mainPicture->getClientOriginalExtension());
         request()->game->move(public_path('games'), $game['id'].".".request()->game->getClientOriginalExtension());
 
-        $Path = public_path("games\\".$game['id'].".".request()->game->getClientOriginalExtension());
+        $Path = public_path("games/".$game['id'].".".request()->game->getClientOriginalExtension());
 
         $za = new ZipArchive();
 
@@ -107,7 +108,12 @@ class CreatorGameController extends Controller
 
         \Zipper::make($Path)->extractTo('games');
 
-        rename(public_path('games')."\\".$name, public_path("games\\".$game['id']));
+        rename(public_path('games')."/".$name, public_path("games/".$game['id']));
+
+        //tags
+
+        $tags = json_decode($input['selectedTags']);
+        $game->tags()->sync($tags);
 
         return redirect(route('game'));
     }

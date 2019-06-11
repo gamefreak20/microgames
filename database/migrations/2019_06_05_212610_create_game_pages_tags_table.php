@@ -15,7 +15,7 @@ class CreateGamePagesTagsTable extends Migration
     {
         Schema::create('game_pages_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('game_pages_id')->unsigned();
+            $table->string('game_pages_id');
             $table->integer('tags_id')->unsigned();
         });
     }

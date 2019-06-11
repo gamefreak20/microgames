@@ -11,13 +11,13 @@ class AjaxController extends Controller
 {
     public function tags($name)
     {
-        $tags = Tags::where('name', 'LIKE', '%'.$name.'%')->get();
+        $tags = tags::where('name', 'LIKE', '%'.$name.'%')->get();
         return json_encode($tags);
     }
 
     public function tag($id)
     {
-        $tag = Tags::findOrFail($id);
+        $tag = tags::findOrFail($id);
         return json_encode($tag);
     }
 
