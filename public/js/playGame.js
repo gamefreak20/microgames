@@ -9,7 +9,6 @@ setInterval(function()
 
 function getGameExp(empty = false)
 {
-    console.log('test');
     $.ajax({
         method: "GET",
         url: "../../randomNumber",
