@@ -4,7 +4,7 @@ namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
-class banned extends Model
+class Banned extends Model
 {
     protected $fillable = [
         'user_id',

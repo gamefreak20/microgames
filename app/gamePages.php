@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class gamePages extends Model
+class GamePages extends Model
 {
     use Sluggable;
 

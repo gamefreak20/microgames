@@ -4,7 +4,7 @@ namespace MicroGames;
 
 use Illuminate\Database\Eloquent\Model;
 
-class gameObject extends Model
+class GameObject extends Model
 {
     protected $fillable = [
         'game_pages_id',
