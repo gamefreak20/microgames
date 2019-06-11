@@ -21,12 +21,14 @@ function getGameExp(empty = false)
             data: { number: data, empty: empty }
         })
         .done(function ( data )  {
-            var newData = JSON.parse(data);
-            $("#xp").text(newData.currentExp + " | " + newData.neededExp);
-            $(".levelTitle").text(newData.level);
-            if (first) {
-                first = false;
-                getGameExp();
+            if (data != 'false') {
+                var newData = JSON.parse(data);
+                $("#xp").text(newData.currentExp + " | " + newData.neededExp);
+                $(".levelTitle").text(newData.level);
+                if (first) {
+                    first = false;
+                    getGameExp();
+                }
             }
         });
     });

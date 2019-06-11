@@ -48,7 +48,7 @@ class AjaxController extends Controller
             if ($request->number == session('randomString')) {
                 if (session('time') == "") {
                     session(['time' => time()]);
-                    return 2;
+                    return 'false';
                 } else {
                     if (time() - (int)session('time') >= 300) {
                         session(['time' => time()]);
@@ -64,11 +64,15 @@ class AjaxController extends Controller
 
                         $user->update(['exp' => (int)$currentExp+50, 'level' => $currentLevel]);
                         return json_encode(['currentExp' => (int)$currentExp+50 , 'level' => $currentLevel, 'neededExp' => $neededExp]);
+                    } else {
+                        return 'false';
                     }
                 }
             } else {
-                return 3;
+                return 'false';
             }
+        } else {
+            return 'false';
         }
     }
 }
