@@ -42,15 +42,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="elementGroup">
-                        <div onclick="selected(1)" id="1">
+                        <div onclick="selected(1)" class="selectors" id="1">
                             <img src="{{asset('images/games/editor/text.png')}}" alt="" />
                             <p class="elementText">Text</p>
                         </div>
-                        <div onclick="selected(2)" id="2">
+                        <div onclick="selected(2)" class="selectors" id="2">
                             <img src="{{asset('images/games/editor/title.png')}}" alt="" />
                             <p class="elementText">Title</p>
                         </div>
-                        <div onclick="selected(3)" id="3">
+                        <div onclick="selected(3)" class="selectors" id="3">
                             <img src="{{asset('images/games/editor/photo.png')}}" alt="" />
                             <p class="elementText">Image</p>
                         </div>

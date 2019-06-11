@@ -30,7 +30,6 @@ function createDiv() {
       numberOfElements++;
 
       var heightClass = $(".height").html();
-      var createDivs = $("#createDivs").html();
 
       var addClass = '';
       switch (idSelect) {
@@ -55,7 +54,11 @@ function createDiv() {
             break;
       }
 
-      $('#exampleModal').modal('hide');
-      $("#createDivs").html(createDivs+addClass);
+        $('#exampleModal').modal('hide');
+        select = false;
+        idSelect = false;
+        $('.selectors').css('background-color','white');
+        $('.elementText').css('color','#3CB46D');
+        $("#createDivs").append(addClass);
     }
 }
