@@ -20,8 +20,8 @@ function getGameExp(empty = false)
             data: { number: data, empty: empty }
         })
         .done(function ( data )  {
-            if (data != 'false') {
-                var newData = JSON.parse(data);
+            var newData = JSON.parse(data);
+            if (newData.level != 'undefined') {
                 $("#xp").text(newData.currentExp + " | " + newData.neededExp);
                 $(".levelTitle").text(newData.level);
                 if (first) {
